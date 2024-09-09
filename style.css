@@ -39,3 +39,7 @@ font-family: "Montserrat", sans-serif;
     align-items: center;
 
 }
+
+.text{
+    position: absolute;
+}
