@@ -43,3 +43,9 @@ font-family: "Montserrat", sans-serif;
 .text{
     position: absolute;
 }
+.qq{
+    background-image: url(3.gif);
+    position: static;
+    width: 100%;
+    height: 200px;
+}
