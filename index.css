@@ -46,7 +46,6 @@ main{
     position: relative;
     width: 250px;
     height: 250px;
-    transition: transform 0.2s ease-in-out; 
   }
   
   .cover img {
@@ -58,6 +57,8 @@ main{
     height: 100%;
     object-fit: cover;
     border-radius: 10px;        
+    transition: transform 0.2s ease-in-out; 
+
   }
   
   .cover p {
@@ -65,6 +66,5 @@ main{
     margin-bottom: 20px;
   }
   
-  .cover:hover {
-    transform: scale(1.05);
-  }
+  .cover img:hover {
+  transform: translate(-50%, -50%) scale(1.05);  }
