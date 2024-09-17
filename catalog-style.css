@@ -5,25 +5,9 @@ body{
   font-family: "Montserrat", sans-serif;
   }
 
-.nav__item p {
-  margin: 0;
-  color: rgb(0, 0, 0);
-
-}
-
 header {
   position: relative;
 }
-  
-
-/* .qq{
-    background-image: url(3.gif);
-    position: static;
-    width: 100%;
-    top:50px;
-    height: 150px;
-} */
-
 
 .main {
   width: 100%;
@@ -40,6 +24,7 @@ header {
   background-color: #f4f4f4; 
   padding: 20px; 
   border-radius: 10px; 
+  position: sticky;
 }
 
 .sidebar ul {
@@ -59,7 +44,7 @@ header {
 }
 
 .cover-grid {
-  width: 700px;
+  width: auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr); 
   gap: 10px; 
