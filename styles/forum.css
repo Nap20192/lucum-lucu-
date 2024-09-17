@@ -1,0 +1,61 @@
+.main {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 100px;
+    position: relative;
+    top: 50px;
+}
+
+
+.forum{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.forum__el{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    padding: 20px;
+    flex-direction: row;
+    background-color: #0c0c0c;
+    border-radius: 10px;
+}
+
+.forum__txt{
+    position: relative;
+    height: 90%;
+}
+.forum__el p{
+    text-wrap: balance;
+}
+.forum__link{
+    position: absolute;
+    right:40px;
+    bottom: 5%;
+    color:rgb(122, 122, 122)
+}
+
+.forum__link:hover{
+    color:rgb(241, 22, 7);
+}
+
+.forum__user{
+    position: absolute;
+    left:0px;
+    bottom: 5%;
+    font-style: italic;
+    color:rgb(122, 122, 122)
+}
+
+.forum__user:hover{
+    color: rgb(0, 76, 255);
+}
+.sidebar {
+    width: auto;
+    right:15%
+}

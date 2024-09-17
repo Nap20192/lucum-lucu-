@@ -1,0 +1,43 @@
+
+main{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner{
+  background-image: url(../media/banner.jpg);
+  width: 80%;
+  height: 500px;
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+}
+.list__li {
+  width: 80%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  gap:5px;
+}
+
+.list__el {
+  position: relative;
+  transition: transform 0.2s ease-in-out; 
+}
+
+.list__el img {
+  width: auto;
+  height: 250px;
+  border-radius: 5px;
+}
+
+.list__el:hover {
+  transform: scale(1.05);
+}
+
+.list p {
+  margin: 0;
+}
+
