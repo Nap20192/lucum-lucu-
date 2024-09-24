@@ -20,14 +20,6 @@
   margin: 0 auto;
 }
 
-.carousel-control-next {
-  width: fit-content;
-}
-
-.carousel-control-prev {
-  width: fit-content;
-}
-
 #bannerCarousel .carousel-item img {
   height: 500px;
   object-fit: cover;
@@ -48,7 +40,7 @@
 
 
 
-.list__el {
+/* .list__el {
   position: relative;
   transition: transform 0.2s ease-in-out;
 }
@@ -67,6 +59,6 @@
 .list p {
   margin: 0;
   text-align: center;
-}
+} */
 
 
