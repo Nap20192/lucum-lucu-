@@ -6,28 +6,97 @@ body{
     color: white;
     }
     
-header{
+/* header{
     width: 100%;
     height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 15px;
-}
+} */
 
 a {
     text-decoration: none; 
     color: white;
   }
 
-.nav{
+.nav-link {
+    color: white;
+}
+
+.navbar-brand {
+    color: white;
+}
+
+.navbar-brand:hover {
+    color: white;
+}
+
+
+.navbar {
+    align-items: center;
+}
+
+.nav-link {
+    border-radius: 10px;
+    /* margin: 5px;
+    padding: 8px; */
+}
+
+.nav-link:focus, .nav-link:hover {
+    color: white;
+    background-color: #3b5fef;
+}
+
+.navbar-toggler {
+    border-color: white;
+}
+  
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%28255, 255, 255, 1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+
+.form-control {
+    background-color: #151515;
+    color: rgb(201, 201, 201);
+    border-radius: 30px;
+}
+
+.form-control:focus {
+    background-color: #151515;
+    color: rgb(201, 201, 201);
+    border-color: #3b5fef; 
+}
+
+.form-control::placeholder {
+    opacity: 1;
+    color: rgb(123, 123, 123);
+}
+
+
+.btn {
+    border-color: #3b5fef;
+    color: #3b5fef;
+    border-radius: 30px;
+}
+
+.btn:hover {
+    color: white;
+    background-color: #3b5fef;
+}
+
+#navbarNav {
+    align-items: center;
+}
+
+/* .nav{
     width: 80%;
     height: auto;
     justify-content: center;
     align-items: center;
     display: flex;
     justify-content: space-between;
-=
 }
 
 .nav__logo{
@@ -58,7 +127,7 @@ a {
 .nav__svg{
     width: 20px;
     height: auto;
-}
+} */
 
 .text{
     position: absolute;
