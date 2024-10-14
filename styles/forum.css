@@ -19,12 +19,15 @@
 .card-link {
     color:rgb(122, 122, 122);
     font-style: italic;
+    border: none;
+    background: none;
 }
 
 .card {
     background-color: #0c0c0c;
     border-radius: 30px;
 }
+
 
 /* .forum{
     width: 50%;
@@ -76,3 +79,5 @@
     width: auto;
     right:15%
 }
+
+
