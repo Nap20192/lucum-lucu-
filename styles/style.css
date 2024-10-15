@@ -79,12 +79,23 @@ a {
     border-color: #3b5fef;
     color: #3b5fef;
     border-radius: 30px;
+    background: none;
 }
 
 .btn:hover {
     color: white;
     background-color: #3b5fef;
 }
+
+.btn-outline-success:focus, .btn-outline-success:active {
+    background-color: #3b5fef;
+}
+
+.btn-outline-success:hover {
+    color: white;
+    background-color: #3b5fef;
+}
+
 
 #navbarNav {
     align-items: center;
@@ -179,3 +190,20 @@ color: white;
     font-size: 11pt;
   }
   
+
+.modal-content {
+    border-radius: 10px;
+    background-color: #0c0c0c;
+    border: 1px solid rgba(59, 95, 239, 0.3);
+    box-shadow: 0px 0px 50px rgba(59, 95, 239, 0.3); /* Adds a soft shadow */
+}
+
+button.btn-primary {
+    padding: 10px 20px;
+}
+
+.btn-close {
+    filter: invert(100%);
+}
+
+

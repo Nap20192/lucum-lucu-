@@ -11,6 +11,7 @@
     <title>home</title>
 </head>
 <body>
+    <p id="dateTime"></p>
     <header>
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
@@ -197,25 +198,68 @@
 
 
     <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-about">
-                <h3>About Us</h3>
-                <p>Lookoom is your go-to platform for manga enthusiasts. Explore, read, and connect with fellow fans!</p>
+      <div class="footer-container">
+          <div class="footer-about">
+              <h3>About Us</h3>
+              <p>Lookoom is your go-to platform for manga enthusiasts. Explore, read, and connect with fellow fans!</p>
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#contactModal">
+                Contact Us
+            </button>
+  
+  
+              <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="contactModalLabel">Contact Us</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="contactForm">
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Name</label>
+                                    <input type="text" class="form-control" id="name" name="name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" name="email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">Message</label>
+                                    <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="footer-links">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="catalog.html">Catalog</a></li>
-                    <li><a href="forum.html">Forum</a></li>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="user-profile.html">Profile</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Lookoom. All Rights Reserved.</p>
-        </div>
-    </footer>
+  
+  
+  
+  
+          </div>
+          <div class="footer-links">
+              <h3>Quick Links</h3>
+              <ul>
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="catalog.html">Catalog</a></li>
+                  <li><a href="forum.html">Forum</a></li>
+                  <li><a href="#">FAQ</a></li>
+                  <li><a href="user-profile.html">Profile</a></li>
+              </ul>
+          </div>
+      </div>
+      <div class="footer-bottom">
+          <p>&copy; 2024 Lookoom. All Rights Reserved.</p>
+      </div>
+      
+  </footer>
+  
+  
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="scripts/clock.js"></script>
+  <script src="scripts/popup.js"></script>
 </body>
 </html>
