@@ -15,6 +15,9 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 
+var y = 5
+var x = (y<4) ? 'less' : 'greater'
+
 
   document.querySelectorAll(".card-link").forEach((button) => {
     button.addEventListener("click", function() {

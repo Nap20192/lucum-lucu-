@@ -347,4 +347,11 @@
   [hidden] {
     display: none;
   }
+
+
+  button {
+    all: unset;
+    display: inline-block; /* Чтобы кнопка сохраняла свои размеры */
+    cursor: pointer; /* Указатель мыши по умолчанию для кнопок */
+  }
   
