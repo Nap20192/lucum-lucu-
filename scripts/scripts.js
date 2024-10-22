@@ -24,7 +24,7 @@ let cl = null
 function play(a){
     if (cl) { 
         cl.pause(); 
-        cl.currentTime =-1;
+        cl.currentTime =0;
     }
     a.play()
     cl = a
@@ -96,10 +96,42 @@ regform.addEventListener('submit',(event)=>{
 d.addEventListener("click",(event)=>{
 event.preventDefault()
 let  inpts = regform.querySelectorAll("input")
+play(s4)
 for(let i of inpts){
     i.value = ""
 }
-play(s4)
+})
+
+let y=130
+let x=70
+let step = 5
+document.addEventListener("keydown",(event)=>{
+    switch(event.key){
+        case"ArrowUp":
+            y-=step
+            break
+        case"ArrowDown":
+            y+=step
+            break
+        case"ArrowRight":
+            x+=step
+            break
+        case"ArrowLeft":
+            x-=step
+            break
+    }
+
+
+    box.style.top = `${y}px`;
+    box.style.left = `${x}px`;
+
+    if(550<=x && x<=555 && 130<=y && y<=135){
+        box.style.border= "3px solid green"
+        if(event.key == "Enter"){
+            popup2.remove("active")
+        }
+    }
+
 })
 
 
