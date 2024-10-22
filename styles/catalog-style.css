@@ -36,3 +36,14 @@
 .cover:hover {
   transform: scale(1.05);
 }
+
+.tab {
+  border: none;
+  color: white;
+  margin: 5px;
+}
+
+.active-tab {
+  background-color: #3b5fef;
+  color: white;
+}
