@@ -1,7 +1,6 @@
 const bg = document.getElementById("bgChange")
 const popupb = document.getElementById("popup")
 const popup= document.querySelector(".popup")
-const popup2= document.querySelector(".popup2")
 const popupx= document.querySelector(".popup_x")
 const body = document.querySelector('body')
 const nav = document.querySelector('.navbar')
@@ -11,26 +10,6 @@ const regform = document.getElementById("registrationForm");
 const f = document.getElementById("f");
 const e = document.getElementById("e");
 let as = e.querySelectorAll("path")
-const  d = document.querySelector(".popup_d")
-const box = document.querySelector(".box")
-
-
-const s1 = new Audio('./audio/click.mp3');
-const s2 = new Audio('./audio/click.mp3')
-const s3 = new Audio('./audio/click.mp3')
-const s4 = new Audio('./audio/click.mp3')
-
-let cl = null
-function play(a){
-    if (cl) { 
-        cl.pause(); 
-        cl.currentTime =-1;
-    }
-    a.play()
-    cl = a
-
-}
-
 
 
 
@@ -50,6 +29,7 @@ function validator(form){
         parent.appendChild(err);
         parent.classList.add('error')
     }
+
     r=true
     let  inputs = form.querySelectorAll("input")
     for(let i of inputs){
@@ -73,46 +53,16 @@ function validator(form){
 
 return r
 }
-popupb.addEventListener('click', function() {
-    popup.classList.add('active');
-    document.body.style.overflow = "hidden"
-});
-popupx.addEventListener('click', function() {
-    popup.classList.remove('active');
-});
-
-regform.addEventListener('submit',(event)=>{
-    event.preventDefault();
-    if( validator(regform) == true){
-        popup.classList.remove('active');
-        popupb.style.visibility= "hidden"
-        popup2.classList.add('active')
-    }else{
-        alert("ne pon")
-    }
-
-})
-
-d.addEventListener("click",(event)=>{
-event.preventDefault()
-let  inpts = regform.querySelectorAll("input")
-for(let i of inpts){
-    i.value = ""
-}
-play(s4)
-})
-
-
-
-
 
 let light = true
 let valid = false
+const colors = ["white", "red", "green", "blue", "#FF33A6", "yellow", "orange", "purple", "pink", "cyan", "magenta", "lime", "#00FF7F", "#FF4500", "#FFD700", "#8A2BE2", "#4B0082", "#40E0D0", "#D2691E", "#FF69B4"];
+
 
 bg.addEventListener('click',()=>{
+let color = colors[Math.floor(Math.random() * colors.length)];
 if(light){
-play(s1)
-document.body.style.backgroundColor = "white";
+document.body.style.backgroundColor = color;
 document.body.style.color = "black";
 light = false
 as.forEach(d =>{
@@ -127,8 +77,7 @@ paragraphs.forEach(p => {
     })
 
 }else{
-play(s2)
-document.body.style.backgroundColor = "black";
+document.body.style.backgroundColor = color;
 document.body.style.color = "white";
 
 as.forEach(d =>{
@@ -144,15 +93,24 @@ svg.forEach(element => {
 });
 }
 f.setAttribute("fill","white")
+
 }
 )
 
+popupb.addEventListener('click', function() {
+    popup.classList.add('active');
+});
+popupx.addEventListener('click', function() {
+    popup.classList.remove('active');
+});
 
+regform.addEventListener('submit',(event)=>{
+    event.preventDefault();
+    if( validator(regform) == true){
+        popup.classList.remove('active');
+        popupb.style.visibility= "hidden"
+    }else{
+        alert("ne pon")
+    }
 
-
-
-
-
-
-
-
+})

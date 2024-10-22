@@ -1,0 +1,63 @@
+
+/* main{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+} */
+
+/* .banner{
+  background-image: url(../media/banner.jpg);
+  width: 80%;
+  height: 500px;
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+} */
+
+#bannerCarousel {
+  width: 80%;
+  margin: 0 auto;
+}
+
+#bannerCarousel .carousel-item img {
+  height: 500px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  #bannerCarousel {
+    width: 100%;
+  }
+
+  #bannerCarousel .carousel-item img {
+    height: auto;
+    border-radius: 0;
+  }
+}
+
+
+
+
+.list__el {
+  position: relative;
+  transition: transform 0.2s ease-in-out;
+}
+
+.list__el img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.list__el:hover {
+  transform: scale(1.05);
+}
+
+.list p {
+  margin: 0;
+  text-align: center;
+}
+
