@@ -1,12 +1,13 @@
 const apiUrl = 'https://api.jikan.moe/v4/';
 const url = `${apiUrl}top/manga?`; 
 
-var currentPage = 1;
-var currentFilter = "bypopularity"
+let currentPage = 1;
+let currentFilter = "bypopularity"
+
 
 const mangaContainer = document.querySelector('.row.manga-catalog');
 
-function fetchManga(filter, page, limit=25) {
+function fetchManga(filter, page, limit=24) {
   var fetchUrl = `${url}filter=${filter}&page=${page}&limit=${limit}`;
   fetch(fetchUrl)
     .then(response => {
@@ -19,19 +20,22 @@ function fetchManga(filter, page, limit=25) {
       console.log(data); 
 
       const mangaList = data.data;
-      mangaContainer.innerHTML = '';
 
       if (!mangaList || mangaList.length === 0) {
         console.error('No manga data available.');
         return;
       }
       mangaList.forEach(manga => {
-        console.log(manga.images.jpg.image_url);
+
 
         const mangaDiv = document.createElement('div');
         mangaDiv.classList.add('col-6', 'col-sm-4', 'col-md-3', 'col-lg-2', 'mb-4');
 
-        const coverDiv = document.createElement('div');
+        const coverDiv = document.createElement('a');
+        coverDiv.addEventListener("click",()=>{
+          localStorage.setItem('id',manga.mal_id)
+        })
+        coverDiv.setAttribute("href",`title_page.html`)
         coverDiv.classList.add('cover');
 
         const img = document.createElement('img');
@@ -63,6 +67,7 @@ function clearActive() {
 
 document.querySelectorAll(".tab").forEach((button) => {
   button.addEventListener("click", function() {
+    mangaContainer.innerHTML = '';
     currentPage = 1;
     clearActive();
     button.classList.add("active-tab");
@@ -82,6 +87,6 @@ else {
       fetchManga("bypopularity", currentPage);
     }
   });
-  
   fetchManga("bypopularity", currentPage);
 }
+

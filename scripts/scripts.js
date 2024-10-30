@@ -15,16 +15,27 @@ const  d = document.querySelector(".popup_d")
 const box = document.querySelector(".box")
 
 
+<<<<<<< HEAD
 const s1 = new Audio('./audio/click.mp3');
 const s2 = new Audio('./audio/click.mp3')
 const s3 = new Audio('./audio/click.mp3')
 const s4 = new Audio('./audio/click.mp3')
+=======
+const s1 = new Audio('./audio/por-fin-apareciste-malnacido-picoro.mp3');
+const s2 = new Audio('./audio/heheheha-clash-royale.mp3')
+const s3 = new Audio('./audio/vine-boom.mp3')
+const s4 = new Audio('./audio/vzryv.mp3')
+>>>>>>> ee360727a792e4f2e8229b9f557d2357be72f80d
 
 let cl = null
 function play(a){
     if (cl) { 
         cl.pause(); 
+<<<<<<< HEAD
         cl.currentTime =-1;
+=======
+        cl.currentTime =0;
+>>>>>>> ee360727a792e4f2e8229b9f557d2357be72f80d
     }
     a.play()
     cl = a
@@ -96,10 +107,49 @@ regform.addEventListener('submit',(event)=>{
 d.addEventListener("click",(event)=>{
 event.preventDefault()
 let  inpts = regform.querySelectorAll("input")
+<<<<<<< HEAD
 for(let i of inpts){
     i.value = ""
 }
 play(s4)
+=======
+play(s4)
+for(let i of inpts){
+    i.value = ""
+}
+})
+
+let y=130
+let x=70
+let step = 5
+document.addEventListener("keydown",(event)=>{
+    switch(event.key){
+        case"ArrowUp":
+            y-=step
+            break
+        case"ArrowDown":
+            y+=step
+            break
+        case"ArrowRight":
+            x+=step
+            break
+        case"ArrowLeft":
+            x-=step
+            break
+    }
+
+
+    box.style.top = `${y}px`;
+    box.style.left = `${x}px`;
+
+    if(550<=x && x<=555 && 130<=y && y<=135){
+        box.style.border= "3px solid green"
+        if(event.key == "Enter"){
+            popup2.remove("active")
+        }
+    }
+
+>>>>>>> ee360727a792e4f2e8229b9f557d2357be72f80d
 })
 
 
