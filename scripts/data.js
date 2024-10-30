@@ -5,10 +5,10 @@ let currentPage = 1;
 let currentFilter = "bypopularity"
 
 
-const mangaContainer = document.querySelector('.row.manga-catalog');
+const mangaContainer = document.querySelector('.manga-catalog');
 
 function fetchManga(filter, page, limit=24) {
-  var fetchUrl = `${url}filter=${filter}&page=${page}&limit=${limit}`;
+  let fetchUrl = `${url}filter=${filter}&page=${page}&limit=${limit}`;
   fetch(fetchUrl)
     .then(response => {
       if (!response.ok) {
@@ -17,8 +17,6 @@ function fetchManga(filter, page, limit=24) {
       return response.json();
     })
     .then(data => {
-      console.log(data); 
-
       const mangaList = data.data;
 
       if (!mangaList || mangaList.length === 0) {
@@ -28,14 +26,13 @@ function fetchManga(filter, page, limit=24) {
       mangaList.forEach(manga => {
 
 
-        const mangaDiv = document.createElement('div');
-        mangaDiv.classList.add('col-6', 'col-sm-4', 'col-md-3', 'col-lg-2', 'mb-4');
+        const mangaDiv = document.createElement('a');
 
-        const coverDiv = document.createElement('a');
-        coverDiv.addEventListener("click",()=>{
+        const coverDiv = document.createElement('div');
+        mangaDiv.addEventListener("click",()=>{
           localStorage.setItem('id',manga.mal_id)
         })
-        coverDiv.setAttribute("href",`title_page.html`)
+        mangaDiv.setAttribute("href",`title_page.html`)
         coverDiv.classList.add('cover');
 
         const img = document.createElement('img');
@@ -44,8 +41,8 @@ function fetchManga(filter, page, limit=24) {
         img.alt = `${manga.title} cover`;
 
         const title = document.createElement('p');
-        title.classList.add('text-center');
-        title.textContent = manga.title;
+        title.classList.add('covertxt');
+        title['textContent'] = manga.title;
 
         coverDiv.appendChild(img);
         coverDiv.appendChild(title);
@@ -87,6 +84,7 @@ else {
       fetchManga("bypopularity", currentPage);
     }
   });
+  document.getElementById("bypopularity").classList.add("active-tab")
   fetchManga("bypopularity", currentPage);
 }
 
