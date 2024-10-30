@@ -34,7 +34,6 @@ function fetchManga(filter, page, limit = 24) {
 
         const img = document.createElement('img');
         img.src = manga.images.jpg.image_url;
-        img.classList.add('img-fluid');
         img.alt = `${manga.title} cover`;
 
         const title = document.createElement('p');
@@ -46,6 +45,7 @@ function fetchManga(filter, page, limit = 24) {
         mangaDiv.appendChild(coverDiv);
 
         mangaContainer.appendChild(mangaDiv);
+        
       });
     })
     .catch(error => {

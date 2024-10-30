@@ -17,7 +17,6 @@ body{
 
 a {
     text-decoration: none; 
-    color: white;
   }
 
 .nav-link {
@@ -291,11 +290,11 @@ border-radius: 30px;
 }
 
 .cover {
-    width: 180px;
-    height: 320px;
-    color: white;
-    transition: transform 0.2s ease-in-out;
-    margin-bottom: 30px;
+    position: relative;
+    transition: transform 0.2s ease-in-out; 
+    height: 280px;
+    margin-bottom: 10px;
+
   }
   
 .cover img {
@@ -303,12 +302,20 @@ border-radius: 30px;
     height: 280px;
     border-radius: 10px;
     object-fit: cover;
-}
-
-.cover p {
-    margin: 0;
-}
-
-.cover:hover {
+  }
+  
+  .covertxt {
+    bottom: -20px;
+    position: absolute;
+    width: 180px;
+    color: white;
+    padding: 35px 5px 5px;
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, .8) 0%, rgba(0, 0, 0, .01) 100%);
+    text-shadow: 0 1px rgba(0, 0, 0, .7);
+    overflow: hidden;
+    border-radius: 0 0 10px 10px;
+  }
+  
+  .cover:hover {
     transform: scale(1.05);
-}
+  }
