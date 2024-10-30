@@ -37,8 +37,36 @@ function fetchManga(filter, page, limit = 24) {
         img.alt = `${manga.title} cover`;
 
         const title = document.createElement('p');
-        title.classList.add('cover-title');
-        title['textContent'] = manga.title;
+        title.classList.add('covertxt');
+        const fullText = manga.title;
+
+        const visibleCharCount = 30;
+        if (fullText.length > visibleCharCount) {
+          const visibleText = fullText.slice(0, visibleCharCount);
+
+          title['textContent'] = `
+            ${visibleText}...
+          `;
+        }
+        else {
+          title['textContent'] = fullText;
+        }
+
+        coverDiv.addEventListener("mouseover", function() {
+          title['textContent'] = fullText;
+        });
+
+        coverDiv.addEventListener("mouseout", function() {
+          if (fullText.length > visibleCharCount) {
+            const visibleText = fullText.slice(0, visibleCharCount);
+  
+            title['textContent'] = `
+              ${visibleText}...
+            `;
+          }
+        });
+
+
 
         coverDiv.appendChild(img);
         coverDiv.appendChild(title);
@@ -85,3 +113,5 @@ if (mangaContainer.classList.contains('index-catalog')) {
   document.getElementById(currentFilter).classList.add("active-tab");
   fetchManga(currentFilter === "rating" ? "" : currentFilter, currentPage);
 }
+
+

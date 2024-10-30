@@ -151,8 +151,9 @@ function updateTheme() {
     svg.forEach(element => element.setAttribute("fill", "black"));
     if (formControl) formControl.style.backgroundColor = "white";
     const style = document.createElement("style");
-    style.textContent = "a { color: black; }";
+    style.textContent = "a { color: black; } .card { background-color: #f7f7f7; } .card-body { color: black; }";
     document.head.appendChild(style);
+
 
 
   } else {
@@ -166,7 +167,7 @@ function updateTheme() {
     svg.forEach(element => element.setAttribute("fill", "white"));
     if (formControl) formControl.style.backgroundColor = "#151515";
     const style = document.createElement("style");
-    style.textContent = "a { color: white; }";
+    style.textContent = "a { color: white; } .card { background-color: #0c0c0c; } .card-body { color: white; }";
     document.head.appendChild(style);
 
   }
@@ -180,10 +181,6 @@ bg.addEventListener('click', () => {
   localStorage.setItem("lightMode", light); 
   updateTheme();
 });
-
-
-
-
 
 
 

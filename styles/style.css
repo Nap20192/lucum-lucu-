@@ -91,6 +91,16 @@ a {
     background-color: #3b5fef;
 }
 
+.tab {
+    border: none;
+    margin: 5px;
+}
+
+.active-tab {
+background-color: #3b5fef;
+color: white;
+}
+
 
 #navbarNav {
     align-items: center;
