@@ -27,7 +27,7 @@ let cl = null
 function play(a){
     if (cl) { 
         cl.pause(); 
-        cl.currentTime=-1;
+        cl.currentTime=0;
     }
     a.play()
     cl = a
@@ -150,16 +150,25 @@ function updateTheme() {
     paragraphs.forEach(p => p.style.color = "black");
     svg.forEach(element => element.setAttribute("fill", "black"));
     if (formControl) formControl.style.backgroundColor = "white";
+    const style = document.createElement("style");
+    style.textContent = "a { color: black; }";
+    document.head.appendChild(style);
+
 
   } else {
     document.body.style.color = "white";
     document.body.style.backgroundColor = "#151515";
     document.querySelector(".popup__content").style.backgroundColor = "#151515";
     as.forEach(d => d.setAttribute("stroke", "white"));
+    
     f.setAttribute("fill", "white");
     paragraphs.forEach(p => p.style.color = "white");
     svg.forEach(element => element.setAttribute("fill", "white"));
     if (formControl) formControl.style.backgroundColor = "#151515";
+    const style = document.createElement("style");
+    style.textContent = "a { color: white; }";
+    document.head.appendChild(style);
+
   }
 }
 
