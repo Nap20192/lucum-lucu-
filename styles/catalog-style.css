@@ -18,37 +18,43 @@
   align-items: center;
   justify-content: center;
 }
+
+
 @media (min-width: 1401px) {
   .manga-catalog {
-    grid-template-columns: repeat(6, 1fr); /* 4 колонки */
+    grid-template-columns: repeat(6, 1fr);
   }
 }
 
 @media (min-width: 1200px) and (max-width: 1400px) {
   .manga-catalog {
-    grid-template-columns: repeat(5, 1fr); 
+    grid-template-columns: repeat(5, 1fr);
   }
 }
 
-/* Настройка для средних экранов */
 @media (min-width: 995px) and (max-width: 1199px) {
   .manga-catalog {
-    grid-template-columns: repeat(4, 1fr); /* 3 колонки */
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
-/* Настройка для небольших экранов */
-@media (min-width: 480px) and (max-width: 994px) {
+@media (min-width: 768px) and (max-width: 994px) {
   .manga-catalog {
-    grid-template-columns: repeat(3, 1fr); /* 2 колонки */
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
-/* Настройка для очень маленьких экранов */
+@media (min-width: 480px) and (max-width: 767px) {
+  .manga-catalog {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 479px) {
   .manga-catalog {
-    grid-template-columns: 1fr; /* 1 колонка */
+    grid-template-columns: 1fr;
   }
 }
+
 
 

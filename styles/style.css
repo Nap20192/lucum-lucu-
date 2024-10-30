@@ -291,22 +291,24 @@ border-radius: 30px;
 }
 
 .cover {
+    width: 180px;
+    height: 320px;
     color: white;
-    transition: transform 0.2s ease-in-out; 
+    transition: transform 0.2s ease-in-out;
+    margin-bottom: 30px;
   }
   
-  .cover img {
+.cover img {
     width: 180px;
     height: 280px;
     border-radius: 10px;
     object-fit: cover;
-  }
-  
-  .cover p {
+}
+
+.cover p {
     margin: 0;
-    margin-bottom: 20px;
-  }
-  
-  .cover:hover {
+}
+
+.cover:hover {
     transform: scale(1.05);
-  }
+}

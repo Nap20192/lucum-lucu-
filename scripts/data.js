@@ -1,13 +1,12 @@
 const apiUrl = 'https://api.jikan.moe/v4/';
-const url = `${apiUrl}top/manga?`; 
+const url = `${apiUrl}top/manga?`;
 
 let currentPage = 1;
-let currentFilter = "bypopularity"
-
+let currentFilter = localStorage.getItem("currentFilter") || "bypopularity";
 
 const mangaContainer = document.querySelector('.manga-catalog');
 
-function fetchManga(filter, page, limit=24) {
+function fetchManga(filter, page, limit = 24) {
   let fetchUrl = `${url}filter=${filter}&page=${page}&limit=${limit}`;
   fetch(fetchUrl)
     .then(response => {
@@ -24,15 +23,13 @@ function fetchManga(filter, page, limit=24) {
         return;
       }
       mangaList.forEach(manga => {
-
-
         const mangaDiv = document.createElement('a');
 
         const coverDiv = document.createElement('div');
-        mangaDiv.addEventListener("click",()=>{
-          localStorage.setItem('id',manga.mal_id)
+        mangaDiv.addEventListener("click", () => {
+          localStorage.setItem('id', manga.mal_id)
         })
-        mangaDiv.setAttribute("href",`title_page.html`)
+        mangaDiv.setAttribute("href", `title_page.html`);
         coverDiv.classList.add('cover');
 
         const img = document.createElement('img');
@@ -41,7 +38,7 @@ function fetchManga(filter, page, limit=24) {
         img.alt = `${manga.title} cover`;
 
         const title = document.createElement('p');
-        title.classList.add('covertxt');
+        title.classList.add('cover-title');
         title['textContent'] = manga.title;
 
         coverDiv.appendChild(img);
@@ -69,22 +66,22 @@ document.querySelectorAll(".tab").forEach((button) => {
     clearActive();
     button.classList.add("active-tab");
     currentFilter = button.id;
-    fetchManga(currentFilter, currentPage);
+    localStorage.setItem("currentFilter", currentFilter);
+    fetchManga(currentFilter === "rating" ? "" : currentFilter, currentPage);
   });
 });
 
 
 if (mangaContainer.classList.contains('index-catalog')) {
-  fetchManga("bypopularity", 1, 6);
-}
-else {
+  fetchManga(currentFilter === "rating" ? "" : currentFilter, 1, 6);
+  document.getElementById(currentFilter).classList.add("active-tab");
+} else {
   window.addEventListener('scroll', function() {
     if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 500) {
       currentPage++;
-      fetchManga("bypopularity", currentPage);
+      fetchManga(currentFilter === "rating" ? "" : currentFilter, currentPage);
     }
   });
-  document.getElementById("bypopularity").classList.add("active-tab")
-  fetchManga("bypopularity", currentPage);
+  document.getElementById(currentFilter).classList.add("active-tab");
+  fetchManga(currentFilter === "rating" ? "" : currentFilter, currentPage);
 }
-
