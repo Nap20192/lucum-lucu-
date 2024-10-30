@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body{
+    font-family: "Montserrat", sans-serif;
+    background-color: #151515;
+    color: white;
+    }
+    
+/* header{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+} */
+
+a {
+    text-decoration: none; 
+    color: white;
+  }
+
+.nav-link {
+    color: white;
+}
+
+.navbar-brand {
+    color: white;
+}
+
+.navbar-brand:hover {
+    color: white;
+}
+
+
+.navbar {
+    align-items: center;
+}
+
+.nav-link {
+    border-radius: 30px;
+    /* margin: 5px;
+    padding: 8px; */
+}
+
+.nav-link:focus, .nav-link:hover {
+    color: white;
+    background-color: #3b5fef;
+}
+
+.navbar-toggler {
+    border-color: white;
+}
+  
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%28255, 255, 255, 1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+
+.form-control {
+    background-color: #151515;
+    color: rgb(201, 201, 201);
+    border-radius: 30px;
+}
+
+.form-control:focus {
+    background-color: #151515;
+    color: rgb(201, 201, 201);
+    border-color: #3b5fef; 
+}
+
+.form-control::placeholder {
+    opacity: 1;
+    color: rgb(123, 123, 123);
+}
+
+
+.btn {
+    border-color: #3b5fef;
+    color: #3b5fef;
+    border-radius: 30px;
+    background: none;
+}
+
+.btn:hover {
+    color: white;
+    background-color: #3b5fef;
+}
+
+.btn-outline-success:focus, .btn-outline-success:active {
+    background-color: #3b5fef;
+}
+
+.btn-outline-success:hover {
+    color: white;
+    background-color: #3b5fef;
+}
+
+
+#navbarNav {
+    align-items: center;
+}
+
+/* .nav{
+    width: 80%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav__logo{
+    height: 70px;
+    width: auto;
+}
+.nav__ul{
+    height: auto;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin: 20px;
+    align-items: center;
+    gap: 40px;
+}
+.nav__item{
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0; 
+    gap: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.nav__svg{
+    width: 20px;
+    height: auto;
+} */
+
+.text{
+    position: absolute;
+}
+
+
+.active-tab {
+background-color: #3b5fef;
+border-bottom: 1px solid #3b5fef;
+}
+  
+.active-tab:hover {
+background-color: #3b5fef;
+border-bottom: 1px solid #3b5fef;
+}
+
+.active-tab a {
+color: white;
+}
+
+
+.sidebar {
+    height: 100%; 
+    background-color: #0c0c0c;
+    border-radius: 10px; 
+}
+
+.sidebar ul {
+    list-style-type: none; 
+    padding: 0; 
+    margin: 0; 
+}
+
+.sidebar li {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px; 
+}
+
+.sidebar li:hover {
+    background-color: #3b5fef;
+}
+
+#dateTime {
+    position: fixed;
+    bottom: 5px;
+    right: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 11pt;
+  }
+  
+
+.modal-content {
+    border-radius: 10px;
+    background-color: #0c0c0c;
+    border: 1px solid rgba(59, 95, 239, 0.3);
+    box-shadow: 0px 0px 50px rgba(59, 95, 239, 0.3); /* Adds a soft shadow */
+}
+
+button.btn-primary {
+    padding: 10px 20px;
+}
+
+.btn-close {
+    filter: invert(100%);
+}
+
+.popup{
+    z-index: 10;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0.8);
+    left: 0%;
+    opacity: 0;
+    visibility: hidden; 
+  }
+  .active{
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .popup__validator{
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 10px;
+  }
+  .popup__content{
+    position: relative;
+    background-color: black;
+    width: 400px;
+    padding: 30px;
+  
+  }
+  .popup_x{
+    position: absolute;
+    top:5%;
+    right:5%;
+  }
+  #registrationForm{
+    display: flex;
+    flex-direction: column;
+    gap: 10px
+  }
+  .form-group{
+    display: flex;
+    flex-direction: column;
+    gap: 4px
+  }
+
+  .error {
+    border-color: red;
+    color: red;
+    font-size: 0.9em;
+}

@@ -15,19 +15,37 @@ const  d = document.querySelector(".popup_d")
 const box = document.querySelector(".box")
 const formControl = document.querySelector(".form-control")
 
+<<<<<<< HEAD
+const s1 = new Audio('./audio/click.mp3');
+const s2 = new Audio('./audio/click.mp3')
+const s3 = new Audio('./audio/click.mp3')
+const s4 = new Audio('./audio/click.mp3')
+=======
 const s1 = new Audio('./audio/por-fin-apareciste-malnacido-picoro.mp3');
 const s2 = new Audio('./audio/heheheha-clash-royale.mp3')
 const s3 = new Audio('./audio/vine-boom.mp3')
 const s4 = new Audio('./audio/vzryv.mp3')
+<<<<<<< HEAD
 const clickSound = new Audio('./audio/click.mp3');
 
 
+=======
+>>>>>>> ee360727a792e4f2e8229b9f557d2357be72f80d
+>>>>>>> 55af03ba6c985feadaa135f041f76c1cad13d8db
 
 let cl = null
 function play(a){
     if (cl) { 
         cl.pause(); 
+<<<<<<< HEAD
         cl.currentTime=-1;
+=======
+<<<<<<< HEAD
+        cl.currentTime =-1;
+=======
+        cl.currentTime =0;
+>>>>>>> ee360727a792e4f2e8229b9f557d2357be72f80d
+>>>>>>> 55af03ba6c985feadaa135f041f76c1cad13d8db
     }
     a.play()
     cl = a
@@ -97,6 +115,12 @@ regform.addEventListener('submit',(event)=>{
 d.addEventListener("click",(event)=>{
 event.preventDefault()
 let  inpts = regform.querySelectorAll("input")
+<<<<<<< HEAD
+for(let i of inpts){
+    i.value = ""
+}
+play(s4)
+=======
 play(s4)
 for(let i of inpts){
     i.value = ""
@@ -132,6 +156,11 @@ document.addEventListener("keydown",(event)=>{
             popup2.remove("active")
         }
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> ee360727a792e4f2e8229b9f557d2357be72f80d
+>>>>>>> 55af03ba6c985feadaa135f041f76c1cad13d8db
 })
 
 
