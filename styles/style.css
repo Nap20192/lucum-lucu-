@@ -6,14 +6,6 @@ body{
     color: white;
     }
     
-/* header{
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 15px;
-} */
 
 a {
     text-decoration: none; 
@@ -187,7 +179,9 @@ color: white;
     font-size: 11pt;
   }
   
-
+#profile{
+    visibility: hidden;
+}
 .modal-content {
     border-radius: 10px;
     background-color: #0c0c0c;

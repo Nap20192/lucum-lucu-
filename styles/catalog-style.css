@@ -29,21 +29,18 @@
   }
 }
 
-/* Настройка для средних экранов */
 @media (min-width: 995px) and (max-width: 1199px) {
   .manga-catalog {
     grid-template-columns: repeat(4, 1fr); /* 3 колонки */
   }
 }
 
-/* Настройка для небольших экранов */
 @media (min-width: 480px) and (max-width: 994px) {
   .manga-catalog {
     grid-template-columns: repeat(3, 1fr); /* 2 колонки */
   }
 }
 
-/* Настройка для очень маленьких экранов */
 @media (max-width: 479px) {
   .manga-catalog {
     grid-template-columns: 1fr; /* 1 колонка */
