@@ -373,7 +373,7 @@ border-radius: 30px;
   
   @media (max-width: 479px) {
     .manga-catalog {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
     .cover img{
       width: 100%;
