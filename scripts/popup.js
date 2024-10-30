@@ -3,7 +3,6 @@ const openPopupBtn = document.getElementById('openPopupBtn');
 const popupForm = document.getElementById('popupForm');
 const closePopupBtn = document.getElementById('closePopupBtn');
 
-// Open the popup when button is clicked
 openPopupBtn.addEventListener('click', function() {
     popupForm.style.display = 'block';
 });

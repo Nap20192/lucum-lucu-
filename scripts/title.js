@@ -18,6 +18,4 @@ fetch(url)
     const desc_txt = desc.querySelector("p")
     title.textContent = manga.title
     desc_txt.textContent = manga.synopsis
-
-
 })

@@ -13,25 +13,26 @@ const e = document.getElementById("e");
 let as = e.querySelectorAll("path")
 const  d = document.querySelector(".popup_d")
 const box = document.querySelector(".box")
-
+const formControl = document.querySelector(".form-control")
 
 const s1 = new Audio('./audio/por-fin-apareciste-malnacido-picoro.mp3');
 const s2 = new Audio('./audio/heheheha-clash-royale.mp3')
 const s3 = new Audio('./audio/vine-boom.mp3')
 const s4 = new Audio('./audio/vzryv.mp3')
+const clickSound = new Audio('./audio/click.mp3');
+
+
 
 let cl = null
 function play(a){
     if (cl) { 
         cl.pause(); 
-        cl.currentTime =0;
+        cl.currentTime=-1;
     }
     a.play()
     cl = a
 
 }
-
-
 
 
 function validator(form){
@@ -131,53 +132,45 @@ document.addEventListener("keydown",(event)=>{
             popup2.remove("active")
         }
     }
-
 })
 
 
 
 
 
-let light = true
-let valid = false
+let light = localStorage.getItem("lightMode") === "true"; 
 
-bg.addEventListener('click',()=>{
-if(light){
-play(s1)
-document.body.style.backgroundColor = "white";
-document.body.style.color = "black";
-light = false
-as.forEach(d =>{
-    d.setAttribute("stroke","black")
-})
-f.setAttribute("fill","black")
-paragraphs.forEach(p => {
-    p.style.color = "black"; 
-})
-    svg.forEach(element => {
-            element.setAttribute("fill","black")    
-    })
+function updateTheme() {
+  if (light) {
+    document.body.style.backgroundColor = "white";
+    document.body.style.color = "black";
+    document.querySelector(".popup__content").style.backgroundColor = "white";
+    as.forEach(d => d.setAttribute("stroke", "black"));
+    f.setAttribute("fill", "black");
+    paragraphs.forEach(p => p.style.color = "black");
+    svg.forEach(element => element.setAttribute("fill", "black"));
+    if (formControl) formControl.style.backgroundColor = "white";
 
-}else{
-play(s2)
-document.body.style.backgroundColor = "black";
-document.body.style.color = "white";
-
-as.forEach(d =>{
-    d.setAttribute("stroke","white")
-})
-paragraphs.forEach(p => {
-    p.style.color = "white"; 
-});
-light=true
-
-svg.forEach(element => {
-    element.setAttribute("fill","white")
-});
+  } else {
+    document.body.style.color = "white";
+    document.body.style.backgroundColor = "#151515";
+    document.querySelector(".popup__content").style.backgroundColor = "#151515";
+    as.forEach(d => d.setAttribute("stroke", "white"));
+    f.setAttribute("fill", "white");
+    paragraphs.forEach(p => p.style.color = "white");
+    svg.forEach(element => element.setAttribute("fill", "white"));
+    if (formControl) formControl.style.backgroundColor = "#151515";
+  }
 }
-f.setAttribute("fill","white")
-}
-)
+
+updateTheme();
+
+bg.addEventListener('click', () => {
+  play(clickSound);
+  light = !light; 
+  localStorage.setItem("lightMode", light); 
+  updateTheme();
+});
 
 
 
