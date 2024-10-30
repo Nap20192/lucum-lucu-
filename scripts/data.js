@@ -115,3 +115,5 @@ if (mangaContainer.classList.contains('index-catalog')) {
 }
 
 
+
+

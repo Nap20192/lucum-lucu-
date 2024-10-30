@@ -80,29 +80,26 @@ margin: 0;
   padding: 10px;
 }
 
-.cover {
+.coverp {
   display: flex;
   flex-direction: row;
   gap: 5px;
   margin-bottom: 10px;
 }
 
-.cover img {
+.coverp img {
   width: 7%;
   height: auto;
   border-radius: 5px;
   object-fit: cover;
 }
 
-.cover h4 {
+.coverp h4 {
   margin: 0;
   margin-top: 10px;
 }
 
-.cover p {
-  margin: 0;
-  margin-top: 5px;
-}
+
 
 .bg{
   z-index: -1;

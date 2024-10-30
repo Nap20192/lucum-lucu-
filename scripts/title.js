@@ -19,3 +19,29 @@ fetch(url)
     title.textContent = manga.title
     desc_txt.textContent = manga.synopsis
 })
+
+
+document.getElementById("AddToList").addEventListener("click",()=>{
+  
+  const mangaId = localStorage.getItem('id');
+  const mangaTitle = document.querySelector(".description__txt h2").textContent;
+  const mangaImage = document.querySelector(".title__img").src;
+  const newManga = {
+    id: mangaId,
+    title: mangaTitle,
+    image: mangaImage
+  };
+
+  let myList = JSON.parse(localStorage.getItem("mylist")) || [];
+
+  const exists = myList.some(manga => manga.id === mangaId);
+
+  if (!exists) {
+    myList.push(newManga);
+    localStorage.setItem("mylist", JSON.stringify(myList));
+    console.log("Added to list:", newManga);
+  } else {
+    console.log("Manga is already in the list");
+  }
+  console.log(localStorage.getItem("mylist"))
+})

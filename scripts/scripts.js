@@ -36,92 +36,92 @@ function play(a){
 }
 
 
-function validator(form){
-    function showError(input,text) {
-        const parent = input.parentNode
-        const err = document.createElement('label')
+    function validator(form){
+        function showError(input,text) {
+            const parent = input.parentNode
+            const err = document.createElement('label')
 
-        err.classList.add('error')
-        err.textContent  = text
+            err.classList.add('error')
+            err.textContent  = text
 
-        const existingError = parent.querySelector('.error');
-        if (existingError) {
-            existingError.remove(); 
+            const existingError = parent.querySelector('.error');
+            if (existingError) {
+                existingError.remove(); 
+            }
+            parent.appendChild(err);
+            parent.classList.add('error')
         }
-        parent.appendChild(err);
-        parent.classList.add('error')
+        r=true
+        let  inputs = form.querySelectorAll("input")
+        for(let i of inputs){
+            if(i.value === ""){
+                showError(i,`${i.getAttribute("name")} is necessary`)
+                r=false
+        }else {
+            if (i.name === 'name' && i.value.length < 2) {
+                showError(i, 'Name must be at least 2 characters long.');
+                r = false;
+            }
+            if (i.name === 'email' && !i.value.includes('@')) {
+                showError(i, 'Please enter a valid email address.');
+                r = false;
+            }
+            if (i.name === 'password' && i.value.length < 6) {
+                showError(i, 'Password must be at least 6 characters long.');
+                r = false;
+            }
+        }}
+
+    return r
     }
-    r=true
-    let  inputs = form.querySelectorAll("input")
-    for(let i of inputs){
-        if(i.value === ""){
-            showError(i,`${i.getAttribute("name")} is necessary`)
-            r=false
-    }else {
-        if (i.name === 'name' && i.value.length < 2) {
-            showError(i, 'Name must be at least 2 characters long.');
-            r = false;
-        }
-        if (i.name === 'email' && !i.value.includes('@')) {
-            showError(i, 'Please enter a valid email address.');
-            r = false;
-        }
-        if (i.name === 'password' && i.value.length < 6) {
-            showError(i, 'Password must be at least 6 characters long.');
-            r = false;
-        }
-    }}
-
-return r
-}
-popupb.addEventListener('click', function() {
-    popup.classList.add('active');
-    document.body.style.overflow = "hidden"
-});
-popupx.addEventListener('click', function() {
-    popup.classList.remove('active');
-});
-
-window.addEventListener('load', function() {
-    if (localStorage.getItem("popupbHidden") === "true") {
-        popupb.style.visibility = "hidden";
-        profile.style.visibility="visible"
-    }
-
-});
-
-regform.addEventListener('submit', (event) => {
-    event.preventDefault();
-    if (validator(regform) === true) {
-        let inputs = regform.querySelectorAll("input");
-        for (let i of inputs) {
-            if (i.name === 'name') {
-                localStorage.setItem("name", i.value);
-            }
-            if (i.name === 'email') {
-                localStorage.setItem("email", i.value);
-            }
-            if (i.name === 'password') {
-                localStorage.setItem("password", i.value);
-            }
-        }
+    popupb.addEventListener('click', function() {
+        popup.classList.add('active');
+        document.body.style.overflow = "hidden"
+    });
+    popupx.addEventListener('click', function() {
         popup.classList.remove('active');
-        popupb.style.visibility = "hidden";
-        profile.style.visibility="visible"
-        localStorage.setItem("popupbHidden", "true");  // Сохраняем состояние
-    } else {
-        alert("ne pon");
-    }
-});
+    });
 
-d.addEventListener("click",(event)=>{
-event.preventDefault()
-let  inpts = regform.querySelectorAll("input")
-play(s4)
-for(let i of inpts){
-    i.value = ""
-}
-})
+    window.addEventListener('load', function() {
+        if (localStorage.getItem("popupbHidden") === "true") {
+            popupb.style.visibility = "hidden";
+            profile.style.visibility="visible"
+        }
+
+    });
+
+    regform.addEventListener('submit', (event) => {
+        event.preventDefault();
+        if (validator(regform) === true) {
+            let inputs = regform.querySelectorAll("input");
+            for (let i of inputs) {
+                if (i.name === 'name') {
+                    localStorage.setItem("name", i.value);
+                }
+                if (i.name === 'email') {
+                    localStorage.setItem("email", i.value);
+                }
+                if (i.name === 'password') {
+                    localStorage.setItem("password", i.value);
+                }
+            }
+            popup.classList.remove('active');
+            popupb.style.visibility = "hidden";
+            profile.style.visibility="visible"
+            localStorage.setItem("popupbHidden", "true");  // Сохраняем состояние
+        } else {
+            alert("ne pon");
+        }
+    });
+
+    d.addEventListener("click",(event)=>{
+    event.preventDefault()
+    let  inpts = regform.querySelectorAll("input")
+    play(s4)
+    for(let i of inpts){
+        i.value = ""
+    }
+    })
 
 
 
