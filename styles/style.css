@@ -355,7 +355,7 @@ border-radius: 30px;
   
   @media (min-width: 480px) and (max-width: 994px) {
     .manga-catalog {
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
     }
     .cover img {
         width: 100%;
@@ -366,14 +366,11 @@ border-radius: 30px;
       .covertxt{
         width: 100%;
       }
-      body{
-        font-size: 10px;
-      }
   }
   
   @media (max-width: 479px) {
     .manga-catalog {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
     .cover img{
       width: 100%;
@@ -383,9 +380,53 @@ border-radius: 30px;
     .covertxt{
         width: 100%;      
     }
-      body{
-        font-size: 10px;
-      }
   }
 
   
+.suggestions-box {
+  margin-top: 10px;
+  position: absolute;
+  z-index: 9999;
+  max-height: 200px;
+  overflow-y: auto;
+  width: 92%;
+  background-color: #0c0c0c;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  display: none;
+}
+
+.suggestion-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.suggestion-item:hover {
+  background-color: rgb(0, 0, 0);
+}
+
+
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+
+::-webkit-scrollbar-track {
+  background-color: #0c0c0c;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #555;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #3b5fef;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: #f1f1f1;
+}

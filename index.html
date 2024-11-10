@@ -184,10 +184,11 @@
               </button>
           </div>
           
-           <form class="d-flex mt-3" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+          <form id="searchForm" class="d-flex mt-3" role="search">
+            <input class="form-control me-2" type="search" id="searchInput" placeholder="Search for manga" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+        <div id="suggestionsBox" class="suggestions-box" style="display: none;"></div>
         </div>
         
         <div class="list mt-5">
@@ -213,6 +214,7 @@
 <script src="scripts/scripts.js"></script>
 <script src="scripts/popup.js"></script>
 <script src="scripts/data.js"></script>
+<script src="scripts/search.js"></script>
 
 </body>
 </html>
