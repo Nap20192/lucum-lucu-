@@ -2,8 +2,9 @@ const exit = document.getElementById("exit")
 exit.addEventListener("click",()=>{
     localStorage.setItem("popupbHidden", "false"); 
 })
-document.querySelector(".username").textContent=localStorage.getItem("name")
-const myList = JSON.parse(localStorage.getItem("mylist")) || [];
+const user = JSON.parse(localStorage.getItem("currentUser"))
+document.querySelector(".username").textContent=user.name
+const myList = JSON.parse(localStorage.getItem("currentUser")).list || [];
 window.addEventListener("load",()=>{
 myList.forEach(el=> {
     const mangaDiv = document.createElement('a');

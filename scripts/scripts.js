@@ -114,10 +114,11 @@ function play(a){
             }
             let id =  Math.floor(Math.random() * 10000) + 1
             addUser({ id:id,name: name, email: email, password:password });
+            localStorage.setItem("currentUser", JSON.stringify({ id:id,name: name, email: email, password:password }));
             popup.classList.remove('active');
             popupb.style.visibility = "hidden";
             profile.style.visibility="visible"
-            localStorage.setItem("popupbHidden", "true");  // Сохраняем состояние
+            localStorage.setItem("popupbHidden", "true");
         } else {
             alert("ne pon");
         }
@@ -132,7 +133,38 @@ function play(a){
     }
     })
 
-
+    loginForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        if (validator(loginForm, true) === true) {
+            let email, password;
+            let inputs = loginForm.querySelectorAll("input");
+            for (let i of inputs) {
+                if (i.name === 'email') {
+                    email = i.value;
+                }
+                if (i.name === 'password') {
+                    password = i.value;
+                }
+            }
+    
+            let user = users.find(u => u.email === email && u.password === password);
+    
+            if (user) {
+                currentUser = user;
+                localStorage.setItem("currentUser", JSON.stringify(currentUser));
+                alert("Login successful!");
+                popup.classList.remove('active');
+                popupb.style.visibility = "hidden";
+                profile.style.visibility="visible"
+                localStorage.setItem("popupbHidden", "true"); 
+            } else {
+                alert("Invalid email or password.");
+            }
+        } else {
+            alert("Please fill in all fields correctly.");
+        }
+    });
+    
 
 
 
@@ -182,7 +214,17 @@ bg.addEventListener('click', () => {
 
 
 
+document.getElementById('showLoginForm').addEventListener('click', function(event) {
+    event.preventDefault();
+    document.getElementById('registrationForm').style.display = 'none';
+    document.getElementById('loginForm').style.display = 'block';
+  });
 
+  document.getElementById('showSignUpForm').addEventListener('click', function(event) {
+    event.preventDefault();
+    document.getElementById('loginForm').style.display = 'none';
+    document.getElementById('registrationForm').style.display = 'block';
+  });
 
 
 

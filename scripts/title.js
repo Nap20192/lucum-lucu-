@@ -1,5 +1,17 @@
 const apiUrl = 'https://api.jikan.moe/v4/';
 const url = `${apiUrl}manga/${localStorage.getItem('id')}`;
+let users = JSON.parse(localStorage.getItem("users")) || [];
+
+function addlist(userId, list) {
+    let user = users.find(user => user.id === userId);
+    if (user) {
+        user.list = list;
+        localStorage.setItem("users", JSON.stringify(users));
+    } else {
+        console.log("User not found");
+    }
+}
+
 
 fetch(url)
   .then(response => {
@@ -119,7 +131,8 @@ const newManga = {
   image: mangaImage
 };
 
-let myList = JSON.parse(localStorage.getItem("mylist")) || [];
+let myList = JSON.parse(localStorage.getItem("currentUser")).list || [];
+let user = JSON.parse(localStorage.getItem("currentUser"))
 
 const exists = myList.some(manga => manga.id === mangaId);
 
@@ -134,7 +147,9 @@ button.addEventListener("click", () => {
   
   if (!exists) {
     myList.push(newManga);
-    localStorage.setItem("mylist", JSON.stringify(myList));
+    user.list = myList
+    localStorage.setItem("currentUser", JSON.stringify(user));
+    addlist(user.id,user.list)
     console.log("Added to list:", newManga);
     
     button.style.backgroundColor = "#778fee";
@@ -143,7 +158,7 @@ button.addEventListener("click", () => {
   } else {
     console.log("Manga is already in the list");
   }
-  console.log(localStorage.getItem("mylist"));
+  console.log(JSON.parse(localStorage.getItem("currentUser")).list);
 });
 }) 
 
