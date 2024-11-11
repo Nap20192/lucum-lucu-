@@ -1,7 +1,8 @@
 const searchInput = document.getElementById('searchInput');
 const suggestionsBox = document.getElementById('suggestionsBox');
 const searchForm = document.getElementById('searchForm');
-
+const genres = document.querySelectorAll('genre');
+const authors = document.querySelectorAll('author');
 
 searchInput.addEventListener('input', async () => {
   const query = searchInput.value.trim();
@@ -53,3 +54,5 @@ searchForm.addEventListener('submit', (event) => {
     alert('No results found!');
   }
 });
+
+
