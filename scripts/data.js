@@ -28,6 +28,8 @@ function fetchManga(filter, page, limit = 24) {
         const coverDiv = document.createElement('div');
         mangaDiv.addEventListener("click", () => {
           localStorage.setItem('id', manga.mal_id)
+          localStorage.setItem('qwe',manga.images.jpg.image_url)
+          localStorage.setItem('ewq',manga.title)
         })
         mangaDiv.setAttribute("href", `title_page.html`);
         coverDiv.classList.add('cover');

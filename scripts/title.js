@@ -14,7 +14,6 @@ fetch(url)
 
     const img = document.querySelector(".title__img");
     img.src = manga.images.jpg.image_url;
-
     const desc = document.querySelector(".description__txt");
     const title = desc.querySelector("#Title");
     const score = desc.querySelector("#Score");
@@ -112,8 +111,8 @@ window.addEventListener("load", () => {
   let button = document.getElementById("AddToList");
 
 const mangaId = localStorage.getItem('id');
-const mangaTitle = document.querySelector("#Title").textContent;
-const mangaImage = document.querySelector(".title__img").src;
+const mangaTitle =localStorage.getItem('ewq')
+const mangaImage =localStorage.getItem('qwe')
 const newManga = {
   id: mangaId,
   title: mangaTitle,

@@ -22,7 +22,13 @@ const s3 = new Audio('./audio/vine-boom.mp3')
 const s4 = new Audio('./audio/vzryv.mp3')
 const clickSound = new Audio('./audio/click.mp3');
 
+let users = JSON.parse(localStorage.getItem("users")) || [];
+function addUser(user) {
+    
+    users.push(user);
 
+    localStorage.setItem("users", JSON.stringify(users));
+  }
 
 let cl = null
 function play(a){
@@ -94,17 +100,20 @@ function play(a){
         event.preventDefault();
         if (validator(regform) === true) {
             let inputs = regform.querySelectorAll("input");
+            let name, email, password
             for (let i of inputs) {
                 if (i.name === 'name') {
-                    localStorage.setItem("name", i.value);
+                    name = i.value
                 }
                 if (i.name === 'email') {
-                    localStorage.setItem("email", i.value);
+                    email = i.value
                 }
                 if (i.name === 'password') {
-                    localStorage.setItem("password", i.value);
+                    password = i.value
                 }
             }
+            let id =  Math.floor(Math.random() * 10000) + 1
+            addUser({ id:id,name: name, email: email, password:password });
             popup.classList.remove('active');
             popupb.style.visibility = "hidden";
             profile.style.visibility="visible"
