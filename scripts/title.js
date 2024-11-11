@@ -107,7 +107,9 @@ fetch(url)
     console.error('Error fetching manga data:', error);
   });
 
-let button = document.getElementById("AddToList");
+
+window.addEventListener("load", () => {
+  let button = document.getElementById("AddToList");
 
 const mangaId = localStorage.getItem('id');
 const mangaTitle = document.querySelector("#Title").textContent;
@@ -144,6 +146,8 @@ button.addEventListener("click", () => {
   }
   console.log(localStorage.getItem("mylist"));
 });
+}) 
+
 
 
 
