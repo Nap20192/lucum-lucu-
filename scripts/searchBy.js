@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Check if the clicked element is a genre button
     if (event.target.classList.contains('genre')) {
       const genre = event.target.textContent.trim();
-      localStorage.setItem('genre', encodeURIComponent(genre));
+      localStorage.setItem('genre', genre);
       localStorage.setItem('tagPressed', 'genre')
       window.location.href = 'search-result.html';
       console.log("Genre button clicked: " + genre);

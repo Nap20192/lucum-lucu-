@@ -107,10 +107,10 @@ fetch(url)
     console.error('Error fetching manga data:', error);
   });
 
-let addToListButton = document.getElementById("AddToList");
+let button = document.getElementById("AddToList");
 
 const mangaId = localStorage.getItem('id');
-const mangaTitle = document.querySelector(".description__txt h2").textContent;
+const mangaTitle = document.querySelector("#Title").textContent;
 const mangaImage = document.querySelector(".title__img").src;
 const newManga = {
   id: mangaId,
@@ -123,23 +123,29 @@ let myList = JSON.parse(localStorage.getItem("mylist")) || [];
 const exists = myList.some(manga => manga.id === mangaId);
 
 if (exists) {
-  addToListButton.style.backgroundColor = "#778fee";
-  addToListButton.innerHTML = "Added";
-  addToListButton.style.fontStyle = "italic";
+  button.style.backgroundColor = "#778fee";
+  button.innerHTML = "Added";
+  button.style.fontStyle = "italic";
 }
 
-addToListButton.addEventListener("click", () => {
+button.addEventListener("click", () => {
+  const exists = myList.some(manga => manga.id === mangaId);
+  
   if (!exists) {
     myList.push(newManga);
     localStorage.setItem("mylist", JSON.stringify(myList));
     console.log("Added to list:", newManga);
-
-    addToListButton.style.backgroundColor = "#778fee";
-    addToListButton.innerHTML = "Added";
-    addToListButton.style.fontStyle = "italic";
+    
+    button.style.backgroundColor = "#778fee";
+    button.innerHTML = "Added";
+    button.style.fontStyle = "italic";
   } else {
     console.log("Manga is already in the list");
   }
   console.log(localStorage.getItem("mylist"));
 });
+
+
+
+
 

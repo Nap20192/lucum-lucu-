@@ -140,7 +140,7 @@ function updateTheme() {
     svg.forEach(element => element.setAttribute("fill", "black"));
     if (formControl) formControl.style.backgroundColor = "white";
     const style = document.createElement("style");
-    style.textContent = "a { color: black; } .card { background-color: #f7f7f7; } .card-body { color: black; }";
+    style.textContent = "a { color: black; } .card { background-color: #f7f7f7; } .card-body { color: black; } .description {background-color: #f7f7f7} table {background-color: rgb(230, 230, 230)} .tag {color: black; background-color: rgb(210, 210, 210); border-color: rgb(210, 210, 210);} .tag:hover {border-color: black;}";
     document.head.appendChild(style);
 
 
@@ -156,7 +156,7 @@ function updateTheme() {
     svg.forEach(element => element.setAttribute("fill", "white"));
     if (formControl) formControl.style.backgroundColor = "#151515";
     const style = document.createElement("style");
-    style.textContent = "a { color: white; } .card { background-color: #0c0c0c; } .card-body { color: white; }";
+    style.textContent = "a { color: white; } .card { background-color: #0c0c0c; } .card-body { color: white; } .description {background-color: rgb(40, 40, 40)} table {background-color: #212121} .tag {color: white; background-color: rgb(78, 78, 78); border-color: rgb(78, 78, 78);} .tag:hover {border-color: white;}" ;
     document.head.appendChild(style);
 
   }
