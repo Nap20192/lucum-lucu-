@@ -1,12 +1,12 @@
 const apiUrl = 'https://api.jikan.moe/v4/';
 const url = `${apiUrl}manga/${localStorage.getItem('id')}`;
-let users = JSON.parse(localStorage.getItem("users")) || [];
+let users1 = JSON.parse(localStorage.getItem("users")) || [];
 
 function addlist(userId, list) {
-    let user = users.find(user => user.id === userId);
+    let user = users1.find(user => user.id === userId);
     if (user) {
         user.list = list;
-        localStorage.setItem("users", JSON.stringify(users));
+        localStorage.setItem("users", JSON.stringify(users1));
     } else {
         console.log("User not found");
     }
@@ -69,7 +69,10 @@ fetch(url)
       },
       { label: "MAL URL", key: "url", process: (value) => `<a href="${value}" target="_blank">Link</a>` }
     ];
-
+    localStorage.setItem('qwe',manga.images.jpg.image_url)
+    localStorage.setItem('ewq',manga.title)
+    localStorage.setItem('score',manga.score)
+    localStorage.setItem('rank',manga.rank)
     mangaData.forEach(item => {
       const tableRow = document.createElement("tr");
 
@@ -125,10 +128,14 @@ window.addEventListener("load", () => {
 const mangaId = localStorage.getItem('id');
 const mangaTitle =localStorage.getItem('ewq')
 const mangaImage =localStorage.getItem('qwe')
+const mangaScore=localStorage.getItem('score')
+const mangaRank=localStorage.getItem('rank')
 const newManga = {
   id: mangaId,
   title: mangaTitle,
-  image: mangaImage
+  image: mangaImage,
+  score:mangaScore,
+  rank:mangaRank
 };
 
 let myList = JSON.parse(localStorage.getItem("currentUser")).list || [];

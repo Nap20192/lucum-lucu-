@@ -15,7 +15,8 @@ const  d = document.querySelector(".popup_d")
 const box = document.querySelector(".box")
 const formControl = document.querySelector(".form-control")
 const profile = document.getElementById("profile")
-
+const loginForm = document.getElementById("loginForm")
+const cover_grid = document.querySelector(".cover-grid") 
 const s1 = new Audio('./audio/por-fin-apareciste-malnacido-picoro.mp3');
 const s2 = new Audio('./audio/heheheha-clash-royale.mp3')
 const s3 = new Audio('./audio/vine-boom.mp3')
@@ -40,8 +41,7 @@ function play(a){
     cl = a
 
 }
-
-
+if(popupb){
     function validator(form){
         function showError(input,text) {
             const parent = input.parentNode
@@ -164,7 +164,10 @@ function play(a){
             alert("Please fill in all fields correctly.");
         }
     });
-    
+        
+}
+
+
 
 
 
@@ -174,7 +177,8 @@ function updateTheme() {
   if (light) {
     document.body.style.backgroundColor = "white";
     document.body.style.color = "black";
-    document.querySelector(".popup__content").style.backgroundColor = "white";
+    if(popupb) document.querySelector(".popup__content").style.backgroundColor = "white";
+
     as.forEach(d => d.setAttribute("stroke", "black"));
     f.setAttribute("fill", "black");
     paragraphs.forEach(p => p.style.color = "black");
@@ -183,16 +187,19 @@ function updateTheme() {
     const style = document.createElement("style");
     style.textContent = "a { color: black; } .card { background-color: #f7f7f7; } .card-body { color: black; } .description {background-color: #f7f7f7} table {background-color: rgb(230, 230, 230)} .tag {color: black; background-color: rgb(210, 210, 210); border-color: rgb(210, 210, 210);} .tag:hover {border-color: black;}";
     document.head.appendChild(style);
+    if(cover_grid) cover_grid.style.backgroundColor="#f0f0f0"
+
+
 
 
 
   } else {
     document.body.style.color = "white";
     document.body.style.backgroundColor = "#151515";
-    document.querySelector(".popup__content").style.backgroundColor = "#151515";
+    if(popupb) document.querySelector(".popup__content").style.backgroundColor = "#151515";
     as.forEach(d => d.setAttribute("stroke", "white"));
-    
-    f.setAttribute("fill", "white");
+    if(cover_grid) cover_grid.style.backgroundColor="#0c0c0c"
+    if(f) f.setAttribute("fill", "white");
     paragraphs.forEach(p => p.style.color = "white");
     svg.forEach(element => element.setAttribute("fill", "white"));
     if (formControl) formControl.style.backgroundColor = "#151515";

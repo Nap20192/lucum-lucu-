@@ -1,4 +1,5 @@
 .footer {
+
   margin-top: 100px;
   background-color: #0c0c0c;
   color: white;
@@ -48,9 +49,14 @@
 
 
 .footer-bottom {
+  width: 100%;
+  position: fixed;
+  bottom:0;
   background-color: #000000;
   padding: 20px 0;
   margin-top: 20px;
+  justify-content: center;
+  align-items: center;
 }
 
 .footer-bottom p {
