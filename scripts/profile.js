@@ -27,10 +27,15 @@ function renderList(list) {
     const txt = document.createElement('div');
     txt.classList.add("cover_txt");
 
-    const title = document.createElement('h10');
+    const title = document.createElement('h8');
     title.textContent = el.title;
 
+    const score = document.createElement('h10');
+    score.textContent = el.score;
+    score.style.display = "block";
+
     txt.appendChild(title); 
+    txt.appendChild(score);
     coverDiv.appendChild(txt);
 
     coverGrid.appendChild(mangaDiv);
