@@ -125,48 +125,48 @@ fetch(url)
 window.addEventListener("load", () => {
   let button = document.getElementById("AddToList");
 
-const mangaId = localStorage.getItem('id');
-const mangaTitle =localStorage.getItem('ewq')
-const mangaImage =localStorage.getItem('qwe')
-const mangaScore=localStorage.getItem('score')
-const mangaRank=localStorage.getItem('rank')
-const newManga = {
-  id: mangaId,
-  title: mangaTitle,
-  image: mangaImage,
-  score:mangaScore,
-  rank:mangaRank
-};
+  const mangaId = localStorage.getItem('id');
+  const mangaTitle =localStorage.getItem('ewq')
+  const mangaImage =localStorage.getItem('qwe')
+  const mangaScore=localStorage.getItem('score')
+  const mangaRank=localStorage.getItem('rank')
+  const newManga = {
+    id: mangaId,
+    title: mangaTitle,
+    image: mangaImage,
+    score:mangaScore,
+    rank:mangaRank
+  };
 
-let myList = JSON.parse(localStorage.getItem("currentUser")).list || [];
-let user = JSON.parse(localStorage.getItem("currentUser"))
+  let myList = JSON.parse(localStorage.getItem("currentUser")).list || [];
+  let user = JSON.parse(localStorage.getItem("currentUser"))
 
-const exists = myList.some(manga => manga.id === mangaId);
-
-if (exists) {
-  button.style.backgroundColor = "#778fee";
-  button.innerHTML = "Added";
-  button.style.fontStyle = "italic";
-}
-
-button.addEventListener("click", () => {
   const exists = myList.some(manga => manga.id === mangaId);
-  
-  if (!exists) {
-    myList.push(newManga);
-    user.list = myList
-    localStorage.setItem("currentUser", JSON.stringify(user));
-    addlist(user.id,user.list)
-    console.log("Added to list:", newManga);
-    
+
+  if (exists) {
     button.style.backgroundColor = "#778fee";
     button.innerHTML = "Added";
     button.style.fontStyle = "italic";
-  } else {
-    console.log("Manga is already in the list");
   }
-  console.log(JSON.parse(localStorage.getItem("currentUser")).list);
-});
+
+  button.addEventListener("click", () => {
+    const exists = myList.some(manga => manga.id === mangaId);
+    
+    if (!exists) {
+      myList.push(newManga);
+      user.list = myList
+      localStorage.setItem("currentUser", JSON.stringify(user));
+      addlist(user.id,user.list)
+      console.log("Added to list:", newManga);
+      
+      button.style.backgroundColor = "#778fee";
+      button.innerHTML = "Added";
+      button.style.fontStyle = "italic";
+    } else {
+      console.log("Manga is already in the list");
+    }
+    console.log(JSON.parse(localStorage.getItem("currentUser")).list);
+  });
 }) 
 
 
