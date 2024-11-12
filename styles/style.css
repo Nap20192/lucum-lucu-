@@ -270,7 +270,7 @@ border-radius: 30px;
     top:7%;
     right:7%;
   }
-  #registrationForm{
+  #registrationForm,#loginForm{
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -280,6 +280,9 @@ border-radius: 30px;
     display: flex;
     flex-direction: column;
     gap: 4px
+  }
+  .toggle-form{
+    margin-top: 5px;
   }
 
   .error {

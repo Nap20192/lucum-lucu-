@@ -36,7 +36,9 @@ searchInput.addEventListener('input', async () => {
 suggestionsBox.addEventListener('click', (event) => {
   if (event.target.classList.contains('suggestion-item')) {
     const mangaId = event.target.getAttribute('data-id');
+
     localStorage.setItem('id', mangaId)
+
     window.location.href = 'title_page.html';
   }
 });

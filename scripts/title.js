@@ -1,5 +1,17 @@
 const apiUrl = 'https://api.jikan.moe/v4/';
 const url = `${apiUrl}manga/${localStorage.getItem('id')}`;
+let users1 = JSON.parse(localStorage.getItem("users")) || [];
+
+function addlist(userId, list) {
+    let user = users1.find(user => user.id === userId);
+    if (user) {
+        user.list = list;
+        localStorage.setItem("users", JSON.stringify(users1));
+    } else {
+        console.log("User not found");
+    }
+}
+
 
 fetch(url)
   .then(response => {
@@ -14,7 +26,6 @@ fetch(url)
 
     const img = document.querySelector(".title__img");
     img.src = manga.images.jpg.image_url;
-
     const desc = document.querySelector(".description__txt");
     const title = desc.querySelector("#Title");
     const score = desc.querySelector("#Score");
@@ -58,7 +69,10 @@ fetch(url)
       },
       { label: "MAL URL", key: "url", process: (value) => `<a href="${value}" target="_blank">Link</a>` }
     ];
-
+    localStorage.setItem('qwe',manga.images.jpg.image_url)
+    localStorage.setItem('ewq',manga.title)
+    localStorage.setItem('score',manga.score)
+    localStorage.setItem('rank',manga.rank)
     mangaData.forEach(item => {
       const tableRow = document.createElement("tr");
 
@@ -112,15 +126,20 @@ window.addEventListener("load", () => {
   let button = document.getElementById("AddToList");
 
 const mangaId = localStorage.getItem('id');
-const mangaTitle = document.querySelector("#Title").textContent;
-const mangaImage = document.querySelector(".title__img").src;
+const mangaTitle =localStorage.getItem('ewq')
+const mangaImage =localStorage.getItem('qwe')
+const mangaScore=localStorage.getItem('score')
+const mangaRank=localStorage.getItem('rank')
 const newManga = {
   id: mangaId,
   title: mangaTitle,
-  image: mangaImage
+  image: mangaImage,
+  score:mangaScore,
+  rank:mangaRank
 };
 
-let myList = JSON.parse(localStorage.getItem("mylist")) || [];
+let myList = JSON.parse(localStorage.getItem("currentUser")).list || [];
+let user = JSON.parse(localStorage.getItem("currentUser"))
 
 const exists = myList.some(manga => manga.id === mangaId);
 
@@ -135,7 +154,9 @@ button.addEventListener("click", () => {
   
   if (!exists) {
     myList.push(newManga);
-    localStorage.setItem("mylist", JSON.stringify(myList));
+    user.list = myList
+    localStorage.setItem("currentUser", JSON.stringify(user));
+    addlist(user.id,user.list)
     console.log("Added to list:", newManga);
     
     button.style.backgroundColor = "#778fee";
@@ -144,7 +165,7 @@ button.addEventListener("click", () => {
   } else {
     console.log("Manga is already in the list");
   }
-  console.log(localStorage.getItem("mylist"));
+  console.log(JSON.parse(localStorage.getItem("currentUser")).list);
 });
 }) 
 
